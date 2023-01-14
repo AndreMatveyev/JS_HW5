@@ -44,7 +44,7 @@ const getTime = getTimeAll(0);
 // Где MM - количество минут, SS - количество секунд. При этом когда закончится время, 
 // нужно вывести в console строку "Timer End".
 
-const time = 125; 
+const time = 65; 
 
 const timer = time => {
     const startDate = new Date();
@@ -53,11 +53,8 @@ const timer = time => {
         console.clear();
         let seconds = time - Math.floor((date - startDate) / 1000);
         if (seconds > 0) {
-            let minutes = 0;
-            if (seconds >= 60) {
-                minutes = (seconds - seconds % 60) / 60;
-                seconds = seconds % 60;
-            } 
+            const minutes = (seconds - seconds % 60) / 60;
+            seconds = seconds % 60;
             console.log(`${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`);
         } else {
             console.log("Time End");
